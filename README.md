@@ -28,7 +28,3 @@ An application for managing tasks. Written in Kotlin using the Jetpack Compose f
 
 * [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) An interface
   that automatically responds to lifecycle events.
-
-* [Room](https://developer.android.com/jetpack/androidx/releases/room) The Room persistence library
-  provides an abstraction layer over SQLite to allow for more robust database access while
-  harnessing the full power of SQLite.
