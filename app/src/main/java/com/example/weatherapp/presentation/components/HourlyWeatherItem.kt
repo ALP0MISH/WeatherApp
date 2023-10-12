@@ -52,13 +52,14 @@ fun HourlyWeatherItemList(
     weatherHours: List<WeatherHourInfoUi>,
     modifier: Modifier = Modifier
 ) {
-    val filtredWeathers = mutableListOf<WeatherHourInfoUi>()
+    val currentHour = Date().hours
 
-    val currentWeather = weatherHours.filter {
-        it.date.hours == Date().hours
-    }.firstOrNull()
-    filtredWeathers.addAll(weatherHours.filter { it.date.hours != Date().hours })
-    if (currentWeather != null) filtredWeathers.add(0, currentWeather)
+// Фильтруем список, чтобы содержал только текущий час и последующие
+    val filteredWeathers = weatherHours.filter { it.date.hours >= currentHour }
+
+// Сортируем список таким образом, чтобы текущий час был первым
+    val sortedWeathers = filteredWeathers.sortedBy { it.date.hours }
+
     Box(
         modifier = modifier.fillMaxWidth(),
         contentAlignment = Alignment.BottomCenter
@@ -77,7 +78,7 @@ fun HourlyWeatherItemList(
             contentPadding = PaddingValues(horizontal = 20.dp)
         ) {
             items(
-                items = filtredWeathers
+                items = filteredWeathers
             ) { weather ->
                 HourlyWeatherItem(
                     weatherHourInfoUi = weather,

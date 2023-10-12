@@ -97,7 +97,6 @@ private fun MainScreen(
                     currentWeather = uiState.weather.currentWeather,
                     countryInfo = uiState.countryInfo
                 )
-
             else -> Unit
         }
         Icon(
