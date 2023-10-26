@@ -24,8 +24,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.weatherapp.presentation.models.WeatherUI
-import com.example.weatherapp.presentation.screens.main.MainScreen
+import com.example.weatherapp.presentation.screens.main.LoadingScreen
 import com.example.weatherapp.presentation.screens.main.MainViewModel
 import com.example.weatherapp.presentation.screens.weather_list.WeatherListScreen
 import com.example.weatherapp.presentation.screens.weather_list.WeatherListViewModel
@@ -35,7 +34,6 @@ import java.util.UUID
 @Composable
 fun AppNavGraph() {
     val navController = rememberNavController()
-
     NavHost(
         navController = navController,
         startDestination = MainScreen.route
@@ -54,13 +52,11 @@ fun AppNavGraph() {
                     fetchCurrentWeather = { viewModel.fetchCurrentWeather() }
                 )
             }
-
-            MainScreen(
+            LoadingScreen(
                 navigateToWeatherList = { navController.navigate(WeatherListScreen.route) },
                 uiStateFlow = viewModel.uiState,
             )
         }
-
         composable(
             route = WeatherListScreen.route,
         ) {

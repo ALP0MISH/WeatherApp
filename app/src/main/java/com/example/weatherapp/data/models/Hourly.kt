@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-
 data class Hourly(
     @SerializedName("temperature_2m")
     val temperature: List<Double>,

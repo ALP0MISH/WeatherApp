@@ -26,11 +26,7 @@ class FetchWeathersUseCaseImpl(
                 longitude = location.longitude.toString(),
                 latitude = location.latitude.toString()
             )
-            Pair(weather, CountryInfo(
-                    countryName = countryName, cityName = cityName)
-            )
-        } catch (e: Throwable) {
-            Pair(WeatherDomain.unknown, CountryInfo.unknown)
-        }
+            Pair(weather, CountryInfo(countryName = countryName, cityName = cityName))
+        } catch (e: Throwable) { Pair(WeatherDomain.unknown, CountryInfo.unknown) }
     }
 }

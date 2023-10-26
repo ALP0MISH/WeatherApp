@@ -1,12 +1,12 @@
 # A program written entirely in Kotlin using the principles of Clean Architecture according to the MVVM pattern.
 
-An application for managing tasks. Written in Kotlin using the Jetpack Compose framework
+An application for Weather it can detect the weather in any place where you would not be but only in
+Earth. Written in Kotlin using the Jetpack Compose framework
 
 ## ScreenShots
 
 [<img src="meta/screenshots/screenshot_first.png" width=160>](meta/screenshots/screenshot_first.png)
 [<img src="meta/screenshots/screenshot_second.png" width=160>](meta/screenshots/screenshot_second.png)
-
 
 ## Libraries
 
@@ -28,3 +28,13 @@ An application for managing tasks. Written in Kotlin using the Jetpack Compose f
 
 * [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) An interface
   that automatically responds to lifecycle events.
+
+* [Retrofit](https://developer.android.com/codelabs/basic-android-kotlin-compose-getting-data-internet#0)
+  This is
+  a library for working with the REST API in Android. It makes it easy to interact with the server
+  and execute HTTP requests.
+  The library itself creates the necessary classes for executing requests and processes responses.
+
+* [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) Hilt is a
+  Dependency Injection (DI) library for the Kotlin programming language. It was developed by Google
+  to simplify the process of implementing dependencies in Android applications.

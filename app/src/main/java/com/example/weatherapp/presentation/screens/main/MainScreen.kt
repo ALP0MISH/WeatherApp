@@ -46,9 +46,11 @@ import com.example.weatherapp.presentation.utils.fetchDayType
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import java.util.Date
+import kotlin.time.Duration.Companion.hours
 
 @Composable
-fun MainScreen(
+fun LoadingScreen(
     uiStateFlow: StateFlow<MainScreenUiState>,
     navigateToWeatherList: () -> Unit,
     modifier: Modifier = Modifier,
@@ -64,12 +66,12 @@ fun MainScreen(
             modifier = fullScreenModifier
         )
     }
-    MainScreen(uiState = uiState, navigateToWeatherList = navigateToWeatherList)
+    LoadingScreen(uiState = uiState, navigateToWeatherList = navigateToWeatherList)
 
 }
 
 @Composable
-private fun MainScreen(
+private fun LoadingScreen(
     uiState: MainScreenUiState,
     navigateToWeatherList: () -> Unit,
     modifier: Modifier = Modifier
@@ -119,6 +121,7 @@ fun BoxScope.LoadedBlock(
     countryInfo: CountryInfo,
     modifier: Modifier = Modifier
 ) {
+    val currentHour = Date().hours
     var isShowInfoBlock by remember { mutableStateOf(false) }
     rememberCoroutineScope().launch {
         delay(100)
@@ -213,7 +216,7 @@ fun WeatherInfo(
             text = city,
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.SemiBold,
-            fontSize = 40.sp,
+            fontSize = 30.sp,
             color = Color.White
         )
         Spacer(modifier = Modifier.height(16.dp))

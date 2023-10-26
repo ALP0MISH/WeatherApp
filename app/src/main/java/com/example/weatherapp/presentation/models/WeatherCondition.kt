@@ -118,5 +118,4 @@ enum class WeatherCondition(
                 weatherCondition.weatherCode.contains(weatherCode)
             } ?: UNKNOWN
     }
-
 }

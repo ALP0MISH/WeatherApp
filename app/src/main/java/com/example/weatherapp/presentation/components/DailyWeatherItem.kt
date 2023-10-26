@@ -80,7 +80,6 @@ fun DailyWeatherItem(
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
-
         Row(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -98,7 +97,6 @@ fun DailyWeatherItem(
                     fontSize = 64.sp,
                     color = Color.White
                 )
-
                 Text(
                     text = weather.time,
                     style = MaterialTheme.typography.bodyLarge,

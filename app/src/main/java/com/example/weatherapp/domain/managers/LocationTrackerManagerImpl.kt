@@ -67,6 +67,5 @@ class LocationTrackerManagerImpl(
             Toast.makeText(application, message, Toast.LENGTH_SHORT).show()
         }
     }
-
 }
 

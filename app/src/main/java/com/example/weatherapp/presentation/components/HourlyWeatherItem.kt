@@ -54,10 +54,8 @@ fun HourlyWeatherItemList(
 ) {
     val currentHour = Date().hours
 
-// Фильтруем список, чтобы содержал только текущий час и последующие
     val filteredWeathers = weatherHours.filter { it.date.hours >= currentHour }
 
-// Сортируем список таким образом, чтобы текущий час был первым
     val sortedWeathers = filteredWeathers.sortedBy { it.date.hours }
 
     Box(
@@ -95,6 +93,8 @@ fun HourlyWeatherItem(
 ) {
     val isNow = weatherHourInfoUi.date.hours == Date().hours
     val actualColor = NightBlue
+
+    val currentHour = Date().hours
 
     var isWeatherLight = false
     when (weatherHourInfoUi.date.hours) {
@@ -135,10 +135,9 @@ fun HourlyWeatherItem(
                 contentDescription = null
             )
             Text(
-                text = "${weatherHourInfoUi.temperature}°",
+                text =  "${weatherHourInfoUi.temperature}°",
                 style = MaterialTheme.typography.bodyLarge,
                 color = Color.White
-
             )
         }
     }

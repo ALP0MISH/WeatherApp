@@ -42,21 +42,16 @@ class WeatherRepositoryImpl @Inject constructor(
 
                 val temperature = if (weatherRemote.hourly.temperature.size > index) {
                     weatherRemote.hourly.temperature[index]
-                } else {
-                    0.0
-                }
+                } else { 0.0 }
 
                 val weatherCode = if (weatherRemote.hourly.weatherCode.size > index) {
                     weatherRemote.hourly.weatherCode[index]
-                } else {
-                    -1
-                }
+                } else { -1 }
 
                 val windSpeed = if (weatherRemote.hourly.windSpeed.size > index) {
                     weatherRemote.hourly.windSpeed[index]
-                } else {
-                    0.0
-                }
+                } else { 0.0 }
+
                 val localDate = LocalDateTime.parse(time)
                 val date = Date.from(localDate.atZone(ZoneId.systemDefault()).toInstant())
                 WeatherDataInfo(
@@ -84,11 +79,8 @@ class WeatherRepositoryImpl @Inject constructor(
                     weatherCode = weatherInfo.value.map { it.weatherCode }?.firstOrNull() ?: -1,
                     windSpeed = weatherInfo.value.map { it.windSpeed }?.firstOrNull() ?: 0.0,
                     time = weatherInfo.key,
-
                     hourlyWeathers = weatherInfo.value.map(::weatherDataInfoToDomain)
-
                 )
-
             }
             return WeatherDomain(
                 currentWeather = currentWeather,
